@@ -1,0 +1,6 @@
+.popup.popup_is-opened {
+  display: flex;
+}
+div.popup_edit_is-opened {
+  display: flex;
+}
