@@ -4,12 +4,11 @@ const Module = (function () {
   const cardContainer = document.querySelector('.places-list');
   const loading = document.querySelector("#fountainG");
 
-  const credentials = {
+  let credentials = {
     origin: 'https://praktikum.tk',
     path: 'cohort9',
-    token: '8efc6ee1-5d62-4d80-bf95-67649358dfce'
+    token : '8efc6ee1-5d62-4d80-bf95-67649358dfce'
   };
-
   const api = new Api(credentials);
 
   const formValidator = new FormValidator();
@@ -22,14 +21,6 @@ const Module = (function () {
   const setPopupInputsListener = function (inputs, form) {
     this.inputs = Array.from(inputs);
     for (let input of this.inputs) {
-      // Можно лучше
-      // Вот пример читаемого блока:
-      // if (form.classList.contains('popup_add')) {
-      //   input.addEventListener(
-      //     'input', (event) => formValidator.setListeners(event, form)
-      //   );
-      // };
-
       if (form.classList.contains('popup_add')) {
         input.addEventListener('input', function (event) { formValidator.setListeners(event, form) })
       };
@@ -37,6 +28,9 @@ const Module = (function () {
         input.addEventListener('input', function (event) { formValidator.setListeners(event, form) })
       };
       if (form.classList.contains('popup_avatar')) {
+        input.addEventListener('input', function (event) { formValidator.setListeners(event, form) })
+      };
+      if (form.classList.contains('popup_token')) {
         input.addEventListener('input', function (event) { formValidator.setListeners(event, form) })
       };
     }
@@ -48,7 +42,8 @@ const Module = (function () {
     new Popup(
       document.querySelector('.user-info__button_add'),
       document.querySelector('.user-info__button_edit'),
-      document.querySelector('.user-info__photo')
+      document.querySelector('.user-info__photo'),
+      document.querySelector('.user-info__token'),
     );
 
   const userInfo = new UserInfo({
@@ -119,6 +114,9 @@ const Module = (function () {
     zoomSection.classList.add('zoom-section__close');
   };
 
+
+
+
   const serverData = () => {
     const pr1 = api.getUserInfo()
       .then((userInfo) => { return userInfo })
@@ -143,10 +141,21 @@ const Module = (function () {
       .catch((err) => console.log(err));
   }
 
-  serverData();
-
+  // serverData();
+  document.querySelector('#formTokenButton').addEventListener('click', function(event){
+  event.preventDefault();  
+  new Token({
+    serverData: serverData, 
+    enterToken: document.querySelector('.popup__input_token').value,
+    serverData : serverData,
+    popupOpenClose,
+    popup :   document.querySelector('.popup_token'),
+    popupError : document.querySelector('.popup__error_type_token'),
+    credentials,
+  }).check();//g
+    
+});
   zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
-
 })();
 
 

@@ -24,7 +24,7 @@ class UserInfo {
       .then((data) => { this.updateUserInfo(data) })
       // Можно лучше
       // data не используется, можно не передавать
-      .then((data) => { this.popupOpenClose.loadingEnd({ button, form: this.formEdit }); })
+      .then(() => { this.popupOpenClose.loadingEnd({ button, form: this.formEdit }); })
       .catch((err) => console.log(err))
   }
 

@@ -24,6 +24,7 @@
           <button class="button user-info__button user-info__button_edit" formClass="popup_edit">Edit</button>
         </div>
         <button class="button user-info__button user-info__button_add" formClass="popup_add">+</button>
+        <button class="button user-info__token empty" formClass="popup_token" style="display: none;">+</button>
       </div>
     </div>
     <div class="places-list root__section">
@@ -81,6 +82,17 @@
           </form>
         </div>
       </div>
+      <div class="popup popup_token popup_is-opened">
+        <div class="popup__content">
+          <img src="./images/close.svg" alt="" class="popup__close" style="display: none;">
+          <h3 class="popup__title">Применить токен</h3>
+          <form class="popup__form" name="token">
+              <input type="text" name="link" class="popup__input popup__input_token popup__input_type_token" placeholder="Введите токен">
+              <p class="popup__error popup__error_show popup__error_type_token">Некорректный токен</p>
+              <button type class="button popup__button input__btn_disable" disabled="true" id="formTokenButton" formClass="popup_token">Сохранить</button>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="zoom-section zoom-section__close" >
       <div class="zoom-section__image-place">
@@ -118,6 +130,7 @@
 <script src="scripts/Avatar.js"></script>
 <script src="scripts/UserInfo.js"></script>
 <script src="scripts/Api.js"></script>
+<script src="scripts/Token.js"></script>
 <script src="scripts/Script.js"></script>
 
 
