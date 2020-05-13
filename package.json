@@ -4,7 +4,8 @@
   "description": "first rep",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf dist && webpack --mode production",
+    "dev": "webpack-dev-server --mode development --open --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,26 @@
   "bugs": {
     "url": "https://github.com/yletfull/spr11/issues"
   },
-  "homepage": "https://github.com/yletfull/spr11#readme"
+  "homepage": "https://github.com/yletfull/spr11#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "cssnano": "^4.1.10",
+    "gh-pages": "^2.2.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-md5-hash": "0.0.6"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.4.1"
+  }
 }
