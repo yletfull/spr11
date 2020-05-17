@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
-  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
 </head>
 <body>
   
@@ -31,6 +31,7 @@
 
       <!-- Пример вёрстки карточки: -->
 <!--
+  "<%= require('./images/logo.svg')%>"
       <div class="place-card">
         <div class="place-card__image" style="background-image: url(https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg)">
           <button class="place-card__delete-icon"></button>
@@ -60,7 +61,7 @@
       </div>
       <div class="popup popup_edit">
         <div class="popup__content">
-          <img src="./images/close.svg" alt="" class="popup__close">
+          <img src="'./images/close.svg" alt="" class="popup__close">
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form" name="edit">
               <input type="text" name="yourName" class="popup__input popup__input_type_name" placeholder="Имя">

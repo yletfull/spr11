@@ -1,0 +1,10 @@
+
+.zoom-section__image-place{
+    position: relative;
+    max-width: 80vw;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: flex-end;
+}
