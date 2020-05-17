@@ -45,13 +45,15 @@ module.exports = {
                 'file-loader?name=../dist/images/[name].[ext]', // указали папку, куда складывать изображения
                 {
                         loader: 'image-webpack-loader',
-                        options: {}
+                        options: {
+              
+                        }
                 },
         ]
     },
     {
         test: /\.(eot|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=./vendor/[name].[ext]'
+        loader: 'file-loader?name=../dist/vendor/[name].[ext]'
     },
     ]
   },
