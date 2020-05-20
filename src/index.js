@@ -1,14 +1,14 @@
+// import Token from "./scripts/Token.js"
 import "./style.css";
 
-import Api from "./scripts/Api.js"
-import Avatar from "./scripts/Avatar.js"
-import Card from "./scripts/Card.js"
-import CardList from "./scripts/CardList.js"
-import CardPopup from "./scripts/CardPopup.js"
-import FormValidator from "./scripts/FormValidator.js"
-import Popup from "./scripts/Popup.js"
-// import Token from "./scripts/Token.js"
-import UserInfo from "./scripts/UserInfo.js"
+import Api from "./scripts/Api.js";
+import Avatar from "./scripts/Avatar.js";
+import Card from "./scripts/Card.js";
+import CardList from "./scripts/CardList.js";
+import CardPopup from "./scripts/CardPopup.js";
+import FormValidator from "./scripts/FormValidator.js";
+import Popup from "./scripts/Popup.js";
+import UserInfo from "./scripts/UserInfo.js";
 
 
   const rootSection = document.querySelector('.places-list')
@@ -76,8 +76,7 @@ import UserInfo from "./scripts/UserInfo.js"
     api,
     userInfoData: api.getUserInfo.bind(api),
     rootSection,
-    // removeCard используется до своего определения
-    // Надо исправить
+
     removeCard,
     callback: createCard,
     postfix: 'cards',
@@ -94,7 +93,7 @@ import UserInfo from "./scripts/UserInfo.js"
   });
 
   CardPopup.prototype.popupOpenClose = popupOpenClose;
-  // CONST!!!!! +
+
   const popupCard = new CardPopup({
     cardList,
     popupOpenClose,
@@ -102,7 +101,6 @@ import UserInfo from "./scripts/UserInfo.js"
     popup: document.querySelector('.popup_add'),
   });
 
-  // CONST!!!!!!!!!!!!!!!!!!!!!! +
   const avatar = new Avatar({
     api,
     popupOpenClose,
@@ -126,9 +124,6 @@ import UserInfo from "./scripts/UserInfo.js"
     zoomSection.classList.add('zoom-section__close');
   };
 
-
-
-
   const serverData = () => {
     const pr1 = api.getUserInfo()
       .then((userInfo) => { return userInfo })
@@ -139,20 +134,22 @@ import UserInfo from "./scripts/UserInfo.js"
       .catch((err) => console.log(err));
 
     Promise.all([pr1, pr2]).then((data) => {
-      this.value = { cards: {}, userInfo: {} }
-      // Можно лучше -- используйте деструктуризацию массива
-      // по индексам не стоит обращаться
-      this.value.cards = data[1];
-      this.value.userInfo = data[0];
+      const value = { cards: {}, userInfo: {} }
+      value.cards = data[1];
+      value.userInfo = data[0];
 
       loading.style = "display:none";
-      userInfo.updateUserInfo(this.value.userInfo);
-      avatar.updateAvatar(this.value.userInfo);
-      cardList.render({ cards: this.value.cards, user: this.value.userInfo })
+      userInfo.updateUserInfo(value.userInfo);
+      avatar.updateAvatar(value.userInfo);
+      cardList.render({ cards: value.cards, user: value.userInfo });
     })
       .catch((err) => console.log(err));
   }
   serverData();
+  zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
+
+
+
   // document.querySelector('#formTokenButton').addEventListener('click', function(event){
   // event.preventDefault();  
   // new Token({
@@ -163,10 +160,9 @@ import UserInfo from "./scripts/UserInfo.js"
   //   popup :   document.querySelector('.popup_token'),
   //   popupError : document.querySelector('.popup__error_type_token'),
   //   credentials,
-  // }).check();//g
-    
+  // }).check();
 // });
-  zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
+
 
 
 

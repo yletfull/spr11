@@ -12,7 +12,6 @@ export default class Avatar {
   }
 
   setAvatar(event, button) {
-
     event.preventDefault();
     const data = { avatar: this.linkPhoto, postfix: `${this.postfix}`, avatar: this.linkPhoto.value, method: this.method };
     this.popupOpenClose.loadingSet(button);

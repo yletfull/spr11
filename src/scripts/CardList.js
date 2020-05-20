@@ -3,9 +3,6 @@ export default class CardList {
 
   constructor(data) {
     ({api:this.api, postfix:this.postfix, cardContainer: this.cardContainer, createCard: this.createCard}=data);
-    // Реализации метода в классе быть не должно!!! 
-    // Надо исправить +
-    // Нельзя связывать получение карт с загрузкой данных юзера, это 2 разных процесса, не надо их смешивать
     this.addCard = this.addCard.bind(this);
   }
 
@@ -17,7 +14,6 @@ export default class CardList {
         const card = this.createCard(value);
         this.cardContainer.appendChild(card);
     }, this);
-
   }
 
   addCard(data) {

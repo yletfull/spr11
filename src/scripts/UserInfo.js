@@ -15,15 +15,12 @@ export default class UserInfo {
     this.aboutInp.value = this.about.textContent;
   }
 
-
   setUserInfo(event, button) {
     event.preventDefault();
     const data = { name: this.nameInp.value, about: this.aboutInp.value, postfix: this.postfix, method: this.method };
     this.popupOpenClose.loadingSet(button);
     this.api.editData(data)
       .then((data) => { this.updateUserInfo(data) })
-      // Можно лучше
-      // data не используется, можно не передавать
       .then(() => { this.popupOpenClose.loadingEnd({ button, form: this.formEdit }); })
       .catch((err) => console.log(err))
   }
@@ -34,8 +31,6 @@ export default class UserInfo {
     this.name.textContent = data.name;
     this.about.textContent = data.about;
     this.id = data._id;
-
   }
 };
 
-//export default UserInfo;

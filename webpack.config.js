@@ -2,10 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash'); // добавили плагин
+const WebpackMd5Hash = require('webpack-md5-hash'); 
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
-
 
 module.exports = {
   entry: { main: './src/index.js' },
@@ -13,7 +12,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js'
   },
-// указали путь к файлу, в квадратных скобках куда вставлять сгенерированный хеш
   module: {
     rules: [
         {
@@ -46,10 +44,9 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              publicPath: 'img',
-              outputPath: 'img',
+              publicPath: 'images',
+              outputPath: 'images',
               useRelativePath: true,
-              esModule: false,
             }
           },
           {
@@ -59,10 +56,20 @@ module.exports = {
           }
         ]
       },
-    {
-        test: /\.(eot|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=../dist/vendor/[name].[ext]'
-    },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]'
+        }
+      }, 
+    //   {
+    //     test: /\.scss$/,
+    //     use: ExtractTextPlugin.extract({
+    //         fallback: 'style-loader',
+    //         use: ['css-loader', 'sass-loader']
+    //     })
+    // },
     ]
   },
   plugins: [ 
@@ -84,7 +91,7 @@ module.exports = {
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
-        'NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
+        NODE_ENV : JSON.stringify(process.env.NODE_ENV)
     }),
   ]
 };
