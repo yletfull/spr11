@@ -21,4 +21,4 @@ Style loader.
 Optimize CSS assets.
 
 ## 6. Github pages  
-[Обычная ссылка в строке](https://yletfull.github.io/spr11/)
+[Ссылка](https://yletfull.github.io/spr11/)
