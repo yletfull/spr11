@@ -14,7 +14,6 @@ export default class CardList {
         const card = this.createCard(value);
         this.cardContainer.appendChild(card);
     }, this);
-
   }
 
   addCard(data) {

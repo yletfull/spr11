@@ -1,5 +1,4 @@
 export default class Card {
-  // Можно лучше -- деструктуризация параметров +
   constructor(data) {
     ({ api: this.api, userInfo: this.userInfo, rootSection: this.template, deleteCard: this.deleteCardServer } = data)
     this.like = this.like.bind(this);
@@ -37,7 +36,6 @@ export default class Card {
 
     if (this.userId !== this.cardInf.owner._id) {
       const button = template.querySelector('.place-card__delete-icon');
-      // Лучше все же по классу карты искать, это хоть какая-то конкретика
       button.closest("div").removeChild(button);
     }
 

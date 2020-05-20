@@ -2,7 +2,7 @@ export default class Popup {
   constructor() {
     for (let i = 0; i < arguments.length; i++) {
       this.openButton = arguments[i];
-      this.formName = this.openButton.getAttribute('formClass');  
+      this.formName = this.openButton.getAttribute('formClass');
       this.form = document.querySelector(`.${this.formName}`); 
       this.formSetButton = this.form.querySelector('.popup__button');
       this.closeButton = this.form.querySelector('.popup__close');
@@ -31,4 +31,3 @@ export default class Popup {
     this.close(data.form);
   }
 };
-
