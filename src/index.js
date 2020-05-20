@@ -1,3 +1,4 @@
+// import Token from "./scripts/Token.js"
 import "./style.css";
 
 import Api from "./scripts/Api.js"
@@ -7,7 +8,6 @@ import CardList from "./scripts/CardList.js"
 import CardPopup from "./scripts/CardPopup.js"
 import FormValidator from "./scripts/FormValidator.js"
 import Popup from "./scripts/Popup.js"
-// import Token from "./scripts/Token.js"
 import UserInfo from "./scripts/UserInfo.js"
 
 
@@ -76,8 +76,7 @@ import UserInfo from "./scripts/UserInfo.js"
     api,
     userInfoData: api.getUserInfo.bind(api),
     rootSection,
-    // removeCard используется до своего определения
-    // Надо исправить
+
     removeCard,
     callback: createCard,
     postfix: 'cards',
@@ -94,7 +93,7 @@ import UserInfo from "./scripts/UserInfo.js"
   });
 
   CardPopup.prototype.popupOpenClose = popupOpenClose;
-  // CONST!!!!! +
+
   const popupCard = new CardPopup({
     cardList,
     popupOpenClose,
@@ -102,7 +101,6 @@ import UserInfo from "./scripts/UserInfo.js"
     popup: document.querySelector('.popup_add'),
   });
 
-  // CONST!!!!!!!!!!!!!!!!!!!!!! +
   const avatar = new Avatar({
     api,
     popupOpenClose,
@@ -140,8 +138,6 @@ import UserInfo from "./scripts/UserInfo.js"
 
     Promise.all([pr1, pr2]).then((data) => {
       this.value = { cards: {}, userInfo: {} }
-      // Можно лучше -- используйте деструктуризацию массива
-      // по индексам не стоит обращаться
       this.value.cards = data[1];
       this.value.userInfo = data[0];
 
@@ -153,6 +149,11 @@ import UserInfo from "./scripts/UserInfo.js"
       .catch((err) => console.log(err));
   }
   serverData();
+  
+  zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
+
+
+
   // document.querySelector('#formTokenButton').addEventListener('click', function(event){
   // event.preventDefault();  
   // new Token({
@@ -163,10 +164,9 @@ import UserInfo from "./scripts/UserInfo.js"
   //   popup :   document.querySelector('.popup_token'),
   //   popupError : document.querySelector('.popup__error_type_token'),
   //   credentials,
-  // }).check();//g
-    
+  // }).check();
 // });
-  zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
+
 
 
 
