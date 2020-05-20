@@ -2,7 +2,7 @@ const presets = [
     [
       "@babel/env",
       {
-        targets: { // указать цели, для полифилов
+        targets: { 
               edge: "17",
               ie: "11",
               firefox: "50",

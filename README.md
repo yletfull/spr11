@@ -8,7 +8,7 @@ V 1.0.0
 Настройка webpack, для сборки проекта с применением минификации кода и поддержкой старых браузеров
 
 ## 4. Установка  
-`git clone https://github.com/yletfull/spr11 master `
+`git clone https://github.com/yletfull/spr11 master`
 
 ## 5. Подключенные библиотеки  
 Babel CLI.
@@ -21,4 +21,4 @@ Style loader.
 Optimize CSS assets.
 
 ## 6. Github pages  
-[Ссылка](https://yletfull.github.io/spr11/)
+[Ссылка](https://yletfull.github.io/spr11/) 

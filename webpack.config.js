@@ -22,10 +22,10 @@ module.exports = {
                             'postcss-loader'
                     ]
         },
-        { // тут описываются правила
-          test: /\.js$/, // регулярное выражение, которое ищет все js файлы
-          use: { loader: "babel-loader" }, // весь JS обрабатывается пакетом babel-loader
-          exclude: /node_modules/ // исключает папку node_modules
+        { 
+          test: /\.js$/,
+          use: { loader: "babel-loader" }, 
+          exclude: /node_modules/ 
         },
     {
         test: /\.(png|jpe?g|gif)$/i,
@@ -55,7 +55,6 @@ module.exports = {
           }
         ]
       },
-      // { test: /\.(woff2?)$/, loader: 'url-loader?limit=10000' },
     ]
   },
   plugins: [ 

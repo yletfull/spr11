@@ -149,7 +149,6 @@ import UserInfo from "./scripts/UserInfo.js";
   zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
 
 
-
   // document.querySelector('#formTokenButton').addEventListener('click', function(event){
   // event.preventDefault();  
   // new Token({
