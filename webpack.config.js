@@ -47,6 +47,7 @@ module.exports = {
               publicPath: 'images',
               outputPath: 'images',
               useRelativePath: true,
+              esModule: false,
             }
           },
           {
@@ -56,13 +57,13 @@ module.exports = {
           }
         ]
       },
-      {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]'
-        }
-      }, 
+      // {
+      //   test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: '[name].[ext]'
+      //   }
+      // }, 
     //   {
     //     test: /\.scss$/,
     //     use: ExtractTextPlugin.extract({
