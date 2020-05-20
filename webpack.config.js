@@ -57,20 +57,7 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-      //   loader: 'file-loader',
-      //   options: {
-      //     name: '[name].[ext]'
-      //   }
-      // }, 
-    //   {
-    //     test: /\.scss$/,
-    //     use: ExtractTextPlugin.extract({
-    //         fallback: 'style-loader',
-    //         use: ['css-loader', 'sass-loader']
-    //     })
-    // },
+      // { test: /\.(woff2?)$/, loader: 'url-loader?limit=10000' },
     ]
   },
   plugins: [ 
