@@ -7,7 +7,7 @@ import CardList from "./scripts/CardList.js"
 import CardPopup from "./scripts/CardPopup.js"
 import FormValidator from "./scripts/FormValidator.js"
 import Popup from "./scripts/Popup.js"
-import Token from "./scripts/Token.js"
+// import Token from "./scripts/Token.js"
 import UserInfo from "./scripts/UserInfo.js"
 
 
@@ -55,7 +55,7 @@ import UserInfo from "./scripts/UserInfo.js"
       document.querySelector('.user-info__button_add'),
       document.querySelector('.user-info__button_edit'),
       document.querySelector('.user-info__photo'),
-      document.querySelector('.user-info__token'),
+      // document.querySelector('.user-info__token'),
     );
 
   const userInfo = new UserInfo({
@@ -152,21 +152,20 @@ import UserInfo from "./scripts/UserInfo.js"
     })
       .catch((err) => console.log(err));
   }
-
-  // serverData();
-  document.querySelector('#formTokenButton').addEventListener('click', function(event){
-  event.preventDefault();  
-  new Token({
-    serverData: serverData, 
-    enterToken: document.querySelector('.popup__input_token').value,
-    serverData : serverData,
-    popupOpenClose,
-    popup :   document.querySelector('.popup_token'),
-    popupError : document.querySelector('.popup__error_type_token'),
-    credentials,
-  }).check();//g
+  serverData();
+  // document.querySelector('#formTokenButton').addEventListener('click', function(event){
+  // event.preventDefault();  
+  // new Token({
+  //   serverData: serverData, 
+  //   enterToken: document.querySelector('.popup__input_token').value,
+  //   serverData : serverData,
+  //   popupOpenClose,
+  //   popup :   document.querySelector('.popup_token'),
+  //   popupError : document.querySelector('.popup__error_type_token'),
+  //   credentials,
+  // }).check();//g
     
-});
+// });
   zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
 
 

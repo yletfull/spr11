@@ -40,17 +40,25 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|gif|ico|svg)$/,
+        test: /\.(png|jpg|gif|ico|svg)$/i,
         use: [
-                'file-loader?name=../dist/images/[name].[ext]', // указали папку, куда складывать изображения
-                {
-                        loader: 'image-webpack-loader',
-                        options: {
-              
-                        }
-                },
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              publicPath: 'img',
+              outputPath: 'img',
+              useRelativePath: true,
+              esModule: false,
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+            }
+          }
         ]
-    },
+      },
     {
         test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'file-loader?name=../dist/vendor/[name].[ext]'

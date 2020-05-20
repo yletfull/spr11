@@ -12,7 +12,7 @@
   
   <div class="root">
     <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+      <img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo">
     </header>
     <div class="profile root__section">
       <div class="user-info">
@@ -48,7 +48,7 @@
     <div class="popup-block">
       <div class="popup popup_add">
         <div class="popup__content">
-          <img src="./images/close.svg" alt="" class="popup__close">
+          <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
           <h3 class="popup__title">Новое место</h3>
           <form class="popup__form" name="new">
               <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название">
@@ -61,7 +61,7 @@
       </div>
       <div class="popup popup_edit">
         <div class="popup__content">
-          <img src="./images/close.svg" alt="" class="popup__close">
+          <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form" name="edit">
               <input type="text" name="yourName" class="popup__input popup__input_type_name" placeholder="Имя">
@@ -74,7 +74,7 @@
       </div>
       <div class="popup popup_avatar">
         <div class="popup__content">
-          <img src="./images/close.svg" alt="" class="popup__close">
+          <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
           <h3 class="popup__title">Обновить аватар</h3>
           <form class="popup__form" name="avatar">
               <input type="text" name="link" class="popup__input popup__input_avatar popup__input_type_link-url" placeholder="Ссылка на аватар">
@@ -83,9 +83,9 @@
           </form>
         </div>
       </div>
-      <div class="popup popup_token popup_is-opened">
+      <!-- <div class="popup popup_token popup_is-opened">
         <div class="popup__content">
-          <img src="./images/close.svg" alt="" class="popup__close" style="display: none;">
+          <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
           <h3 class="popup__title">Применить токен</h3>
           <form class="popup__form" name="token">
               <input type="text" name="link" class="popup__input popup__input_token popup__input_type_token" placeholder="Введите токен">
@@ -93,11 +93,11 @@
               <button type class="button popup__button input__btn_disable" disabled="true" id="formTokenButton" formClass="popup_token">Сохранить</button>
           </form>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="zoom-section zoom-section__close" >
       <div class="zoom-section__image-place">
-        <img src="./images/close.svg" alt="" class="zoom-section__close-button">
+        <img src="<%=require('./images/close.svg')%>" alt="" class="zoom-section__close-button">
         <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg" alt="" class="zoom-section__image">
       </div>
     </div>
