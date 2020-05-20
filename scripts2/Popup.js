@@ -1,4 +1,4 @@
-export default class Popup {
+class Popup {
   constructor() {
     for (let i = 0; i < arguments.length; i++) {
       this.openButton = arguments[i];

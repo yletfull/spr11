@@ -1,4 +1,4 @@
-export default class Avatar {
+class Avatar {
   constructor(data) {
     ({
       api: this.api,

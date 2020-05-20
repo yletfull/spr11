@@ -1,5 +1,4 @@
-
-export default class CardList {
+class CardList {
 
   constructor(data) {
     ({api:this.api, postfix:this.postfix, cardContainer: this.cardContainer, createCard: this.createCard}=data);

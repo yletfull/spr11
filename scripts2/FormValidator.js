@@ -1,4 +1,4 @@
-export default class FormValidator{
+class FormValidator{
   constructor(){}
 
   setListeners(event,form){

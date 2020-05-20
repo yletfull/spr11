@@ -1,4 +1,4 @@
-export default class CardPopup{
+class CardPopup{
     constructor(data){
       ({cardList:this.cardList, popup: this.popup, popupOpenClose: this.popupOpenClose, form: this.form} = data)
       this.placeName = this.form.elements.name;
