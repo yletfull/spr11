@@ -27,34 +27,41 @@ module.exports = {
           use: { loader: "babel-loader" }, 
           exclude: /node_modules/ 
         },
-    {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
-      },
-      {
-        test: /\.(png|jpg|gif|ico|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              publicPath: 'images',
-              outputPath: 'images',
-              useRelativePath: true,
-              esModule: false,
+        {
+          test: /\.(eot|ttf|woff|woff2)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                publicPath: 'fonts',
+                outputPath: 'fonts',
+                useRelativePath: true,
+                esModule: false,
+              }
             }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-            }
-          }
-        ]
-      },
+            ],
+        },
+        {
+          test: /\.(png|jpe?g|gif|ico|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                publicPath: 'images',
+                outputPath: 'images',
+                useRelativePath: true,
+                esModule: false,
+              }
+            },
+            {
+              loader: 'image-webpack-loader',
+              options: {
+              }
+            },
+          ]
+        },
     ]
   },
   plugins: [ 
