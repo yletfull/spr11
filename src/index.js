@@ -1,6 +1,4 @@
-// import Token from "./scripts/Token.js"
 import "./style.css";
-
 import Api from "./scripts/Api.js";
 import Avatar from "./scripts/Avatar.js";
 import Card from "./scripts/Card.js";
@@ -9,7 +7,6 @@ import CardPopup from "./scripts/CardPopup.js";
 import FormValidator from "./scripts/FormValidator.js";
 import Popup from "./scripts/Popup.js";
 import UserInfo from "./scripts/UserInfo.js";
-
 
   const rootSection = document.querySelector('.places-list')
   const zoomSection = document.querySelector('.zoom-section');
@@ -55,7 +52,6 @@ import UserInfo from "./scripts/UserInfo.js";
       document.querySelector('.user-info__button_add'),
       document.querySelector('.user-info__button_edit'),
       document.querySelector('.user-info__photo'),
-      // document.querySelector('.user-info__token'),
     );
 
   const userInfo = new UserInfo({
@@ -149,18 +145,6 @@ import UserInfo from "./scripts/UserInfo.js";
   zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
 
 
-  // document.querySelector('#formTokenButton').addEventListener('click', function(event){
-  // event.preventDefault();  
-  // new Token({
-  //   serverData: serverData, 
-  //   enterToken: document.querySelector('.popup__input_token').value,
-  //   serverData : serverData,
-  //   popupOpenClose,
-  //   popup :   document.querySelector('.popup_token'),
-  //   popupError : document.querySelector('.popup__error_type_token'),
-  //   credentials,
-  // }).check();
-// });
 
 
 

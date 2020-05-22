@@ -15,12 +15,12 @@ module.exports = {
   module: {
     rules: [
         {
-            test: /\.css$/i,
-            use: [
-                            (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                            'css-loader', 
-                            'postcss-loader'
-                    ]
+          test: /\.css$/i,
+          use: [
+            (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+            'css-loader', 
+            'postcss-loader'                  
+          ]
         },
         { 
           test: /\.js$/,
@@ -40,7 +40,7 @@ module.exports = {
                 esModule: false,
               }
             }
-            ],
+          ],
         },
         {
           test: /\.(png|jpe?g|gif|ico|svg)$/i,
@@ -72,7 +72,7 @@ module.exports = {
         assetNameRegExp: /\.css$/g,
         cssProcessor: require('cssnano'),
         cssProcessorPluginOptions: {
-                preset: ['default'],
+          preset: ['default'],
         },
         canPrint: true
     }),

@@ -2,7 +2,7 @@
   "name": "sp11",
   "version": "1.0.0",
   "description": "first rep",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/yletfull/spr11.git"
   },
-  "author": "",
+  "author": "Andrey Korlyakov <ylet-logi@mail.ru>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yletfull/spr11/issues"
