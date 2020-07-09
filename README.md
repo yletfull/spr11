@@ -5,7 +5,7 @@ Andrey Korlyakov
 V 1.0.0  
 
 ## 3. Описание спринта  
-Продолжение [9-го спртинта](https://github.com/yletfull/spr9/blob/develop/README.md) 
+Продолжение [9-го спртинта](https://github.com/yletfull/spr9/blob/master/README.md) 
 Настройка webpack, для сборки проекта с применением минификации кода и поддержкой старых браузеров.
 
 ## 4. Установка  
