@@ -1,4 +1,4 @@
-class FormValidator{
+export default class FormValidator{
   constructor(){}
 
   setListeners(event,form){
@@ -31,7 +31,6 @@ class FormValidator{
       if(this.inputs[i].value.length === 0){countValTrue=0;}else{countValTrue = this.parentForm.querySelectorAll('.popup__error_show').length;}
       if(countValTrue === this.errors.length){this.buttonOpen(this.button);}else{this.buttonDisable(this.button);}
     }
-    
   }
 
   errorTextOppen(error){
@@ -50,6 +49,6 @@ class FormValidator{
     button.classList.add('input__btn_disabled');
     button.classList.remove('input__btn_enable');
   }
-  
-  
-}
+};
+
+

@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
   constructor(options) {
     ({ origin: this.origin, path: this.path, token: this.token } = options);
     this.baseUrl = `${this.origin}/${this.path}`;

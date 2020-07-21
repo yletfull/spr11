@@ -1,15 +1,23 @@
-const Module = (function () {
+import "./style.css";
+import Api from "./scripts/Api.js";
+import Avatar from "./scripts/Avatar.js";
+import Card from "./scripts/Card.js";
+import CardList from "./scripts/CardList.js";
+import CardPopup from "./scripts/CardPopup.js";
+import FormValidator from "./scripts/FormValidator.js";
+import Popup from "./scripts/Popup.js";
+import UserInfo from "./scripts/UserInfo.js";
+
   const rootSection = document.querySelector('.places-list')
   const zoomSection = document.querySelector('.zoom-section');
   const cardContainer = document.querySelector('.places-list');
   const loading = document.querySelector("#fountainG");
 
-  const credentials = {
+  let credentials = {
     origin: 'https://praktikum.tk',
     path: 'cohort9',
-    token: '8efc6ee1-5d62-4d80-bf95-67649358dfce'
+    token : '8efc6ee1-5d62-4d80-bf95-67649358dfce'
   };
-
   const api = new Api(credentials);
 
   const formValidator = new FormValidator();
@@ -22,14 +30,6 @@ const Module = (function () {
   const setPopupInputsListener = function (inputs, form) {
     this.inputs = Array.from(inputs);
     for (let input of this.inputs) {
-      // Можно лучше
-      // Вот пример читаемого блока:
-      // if (form.classList.contains('popup_add')) {
-      //   input.addEventListener(
-      //     'input', (event) => formValidator.setListeners(event, form)
-      //   );
-      // };
-
       if (form.classList.contains('popup_add')) {
         input.addEventListener('input', function (event) { formValidator.setListeners(event, form) })
       };
@@ -37,6 +37,9 @@ const Module = (function () {
         input.addEventListener('input', function (event) { formValidator.setListeners(event, form) })
       };
       if (form.classList.contains('popup_avatar')) {
+        input.addEventListener('input', function (event) { formValidator.setListeners(event, form) })
+      };
+      if (form.classList.contains('popup_token')) {
         input.addEventListener('input', function (event) { formValidator.setListeners(event, form) })
       };
     }
@@ -48,7 +51,7 @@ const Module = (function () {
     new Popup(
       document.querySelector('.user-info__button_add'),
       document.querySelector('.user-info__button_edit'),
-      document.querySelector('.user-info__photo')
+      document.querySelector('.user-info__photo'),
     );
 
   const userInfo = new UserInfo({
@@ -69,8 +72,7 @@ const Module = (function () {
     api,
     userInfoData: api.getUserInfo.bind(api),
     rootSection,
-    // removeCard используется до своего определения
-    // Надо исправить
+
     removeCard,
     callback: createCard,
     postfix: 'cards',
@@ -87,7 +89,7 @@ const Module = (function () {
   });
 
   CardPopup.prototype.popupOpenClose = popupOpenClose;
-  // CONST!!!!! +
+
   const popupCard = new CardPopup({
     cardList,
     popupOpenClose,
@@ -95,7 +97,6 @@ const Module = (function () {
     popup: document.querySelector('.popup_add'),
   });
 
-  // CONST!!!!!!!!!!!!!!!!!!!!!! +
   const avatar = new Avatar({
     api,
     popupOpenClose,
@@ -129,25 +130,23 @@ const Module = (function () {
       .catch((err) => console.log(err));
 
     Promise.all([pr1, pr2]).then((data) => {
-      this.value = { cards: {}, userInfo: {} }
-      // Можно лучше -- используйте деструктуризацию массива
-      // по индексам не стоит обращаться
-      this.value.cards = data[1];
-      this.value.userInfo = data[0];
+      const value = { cards: {}, userInfo: {} }
+      value.cards = data[1];
+      value.userInfo = data[0];
 
       loading.style = "display:none";
-      userInfo.updateUserInfo(this.value.userInfo);
-      avatar.updateAvatar(this.value.userInfo);
-      cardList.render({ cards: this.value.cards, user: this.value.userInfo })
+      userInfo.updateUserInfo(value.userInfo);
+      avatar.updateAvatar(value.userInfo);
+      cardList.render({ cards: value.cards, user: value.userInfo });
     })
       .catch((err) => console.log(err));
   }
-
   serverData();
-
   zoomSection.querySelector('.zoom-section__close-button').addEventListener('click', closeImagePopup);
 
-})();
+
+
+
 
 
 

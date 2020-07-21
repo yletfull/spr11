@@ -1,4 +1,4 @@
-class Avatar {
+export default class Avatar {
   constructor(data) {
     ({
       api: this.api,
@@ -12,7 +12,6 @@ class Avatar {
   }
 
   setAvatar(event, button) {
-
     event.preventDefault();
     const data = { avatar: this.linkPhoto, postfix: `${this.postfix}`, avatar: this.linkPhoto.value, method: this.method };
     this.popupOpenClose.loadingSet(button);
